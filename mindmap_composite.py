@@ -45,7 +45,11 @@ class MindMapComposite:
 
     def display(self, indent=0):
         if indent == 0:
-            print('mindmap'+os.linesep+'root', end='')
-        print(' ' * indent + str(self) + '\n')
+            print('mindmap'+os.linesep+' root', end='')
+            print(' ' * indent + str(self))
+            indent+=2
+        else:
+            print(' ' * indent + str(self))
+
         for child in self.children:
             child.display(indent + 2)
